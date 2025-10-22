@@ -6,9 +6,12 @@ import {
   ZoomIn, 
   ZoomOut, 
   Maximize,
-  Workflow
+  Workflow,
+  Moon,
+  Sun
 } from "lucide-react";
 import { Input } from "@/components/ui/input";
+import { useTheme } from "@/components/theme-provider";
 
 interface WorkflowToolbarProps {
   workflowName: string;
@@ -31,6 +34,12 @@ export default function WorkflowToolbar({
   onZoomOut,
   onFitView,
 }: WorkflowToolbarProps) {
+  const { theme, setTheme } = useTheme();
+
+  const toggleTheme = () => {
+    setTheme(theme === "light" ? "dark" : "light");
+  };
+
   return (
     <div className="h-14 bg-card border-b border-card-border flex items-center justify-between px-4 gap-4">
       <div className="flex items-center gap-3">
@@ -103,6 +112,21 @@ export default function WorkflowToolbar({
             data-testid="button-fit-view"
           >
             <Maximize className="w-4 h-4" />
+          </Button>
+        </div>
+
+        <div className="flex items-center gap-1 pl-2 border-l border-border">
+          <Button
+            variant="ghost"
+            size="icon"
+            onClick={toggleTheme}
+            data-testid="button-toggle-theme"
+          >
+            {theme === "light" ? (
+              <Moon className="w-4 h-4" />
+            ) : (
+              <Sun className="w-4 h-4" />
+            )}
           </Button>
         </div>
       </div>
