@@ -5,6 +5,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { ThemeProvider } from "@/components/theme-provider";
 import WorkflowBuilder from "@/pages/WorkflowBuilder";
+import { FloatingToolbar } from "./components/floating-toolbar";
 
 function Router() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <TooltipProvider>
           <Toaster />
           <Router />
+          <FloatingToolbar />
         </TooltipProvider>
       </QueryClientProvider>
     </ThemeProvider>

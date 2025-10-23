@@ -73,7 +73,7 @@ app.use((req, res, next) => {
   const port = parseInt(process.env.PORT || '3000', 10);
   server.listen({
     port, 
-    host: "127.0.0.1",
+    host: "localhost",
     reusePort: true,
   }, () => {
     log(`serving on port ${port}`);
